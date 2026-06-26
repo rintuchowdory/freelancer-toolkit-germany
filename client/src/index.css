@@ -57,7 +57,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
+
   /* Custom design tokens */
   --color-amber-gold: var(--amber-gold);
   --color-amber-gold-light: var(--amber-gold-light);
@@ -71,19 +71,19 @@
 :root {
   /* Neue Sachlichkeit — Light Mode */
   --radius: 0.25rem; /* Minimal rounding — German precision */
-  
+
   /* Core palette */
-  --background: oklch(0.978 0.004 80);       /* Warm gray #F7F6F3 */
-  --foreground: oklch(0.145 0.01 60);         /* Near-black #18191C */
-  --card: oklch(1 0 0);                        /* Pure white cards */
+  --background: oklch(0.978 0.004 80); /* Warm gray #F7F6F3 */
+  --foreground: oklch(0.145 0.01 60); /* Near-black #18191C */
+  --card: oklch(1 0 0); /* Pure white cards */
   --card-foreground: oklch(0.145 0.01 60);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0.01 60);
-  
+
   /* Amber-gold primary accent */
-  --primary: oklch(0.62 0.14 65);             /* #D4820A amber-gold */
+  --primary: oklch(0.62 0.14 65); /* #D4820A amber-gold */
   --primary-foreground: oklch(1 0 0);
-  
+
   --secondary: oklch(0.96 0.003 80);
   --secondary-foreground: oklch(0.35 0.01 60);
   --muted: oklch(0.96 0.003 80);
@@ -95,32 +95,32 @@
   --border: oklch(0.9 0.005 80);
   --input: oklch(0.9 0.005 80);
   --ring: oklch(0.62 0.14 65);
-  
+
   /* Chart colors — amber/warm spectrum */
   --chart-1: oklch(0.62 0.14 65);
   --chart-2: oklch(0.72 0.12 65);
   --chart-3: oklch(0.52 0.16 65);
   --chart-4: oklch(0.42 0.12 60);
   --chart-5: oklch(0.35 0.08 55);
-  
+
   /* Sidebar — deep charcoal */
-  --sidebar: oklch(0.165 0.012 255);          /* #1C1F26 deep slate */
+  --sidebar: oklch(0.165 0.012 255); /* #1C1F26 deep slate */
   --sidebar-foreground: oklch(0.92 0.005 80);
-  --sidebar-primary: oklch(0.62 0.14 65);     /* amber-gold active */
+  --sidebar-primary: oklch(0.62 0.14 65); /* amber-gold active */
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.22 0.01 255);     /* slightly lighter hover */
+  --sidebar-accent: oklch(0.22 0.01 255); /* slightly lighter hover */
   --sidebar-accent-foreground: oklch(0.95 0.005 80);
   --sidebar-border: oklch(0.25 0.01 255);
   --sidebar-ring: oklch(0.62 0.14 65);
-  
+
   /* Custom tokens */
   --amber-gold: oklch(0.62 0.14 65);
   --amber-gold-light: oklch(0.92 0.06 80);
-  --success: oklch(0.42 0.12 145);            /* Forest green */
+  --success: oklch(0.42 0.12 145); /* Forest green */
   --success-foreground: oklch(0.98 0 0);
   --warning: oklch(0.75 0.15 75);
   --warning-foreground: oklch(0.145 0.01 60);
-  
+
   /* Animation easings */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -173,25 +173,31 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
     font-size: 14px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   /* Financial numbers always use JetBrains Mono */
-  .font-mono, .tabular-nums {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  .font-mono,
+  .tabular-nums {
+    font-family: "JetBrains Mono", "Fira Code", monospace;
     font-feature-settings: "tnum" 1;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
-  
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -203,12 +209,14 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
-  
+
   /* Smooth transitions for interactive elements */
-  button, a, [role="button"] {
+  button,
+  a,
+  [role="button"] {
     transition: all 150ms var(--ease-out);
   }
-  
+
   button:active:not(:disabled) {
     transform: scale(0.97);
   }
@@ -242,21 +250,21 @@
       max-width: 1280px;
     }
   }
-  
+
   /* Neue Sachlichkeit signature: amber left-border on active items */
   .nav-item-active {
     border-left: 2px solid var(--amber-gold);
     background-color: oklch(0.22 0.01 255);
     color: oklch(1 0 0);
   }
-  
+
   /* Financial value display */
   .financial-value {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
     font-feature-settings: "tnum" 1;
     font-variant-numeric: tabular-nums;
   }
-  
+
   /* Status badges */
   .badge-paid {
     background-color: oklch(0.92 0.06 145);
@@ -270,23 +278,25 @@
     background-color: oklch(0.95 0.06 25);
     color: oklch(0.45 0.2 25);
   }
-  
+
   /* Section dividers — hairline rules */
   .section-divider {
     height: 1px;
     background-color: var(--border);
     width: 100%;
   }
-  
+
   /* Card hover effect */
   .card-interactive {
-    transition: box-shadow 150ms var(--ease-out), transform 150ms var(--ease-out);
+    transition:
+      box-shadow 150ms var(--ease-out),
+      transform 150ms var(--ease-out);
   }
   .card-interactive:hover {
     box-shadow: 0 4px 16px oklch(0 0 0 / 0.08);
     transform: translateY(-1px);
   }
-  
+
   /* Entrance animation */
   @keyframes fadeInUp {
     from {
@@ -298,20 +308,32 @@
       transform: translateY(0);
     }
   }
-  
+
   .animate-fade-in-up {
     animation: fadeInUp 200ms var(--ease-out) both;
   }
-  
+
   @media (prefers-reduced-motion: no-preference) {
     .animate-stagger > * {
       animation: fadeInUp 200ms var(--ease-out) both;
     }
-    .animate-stagger > *:nth-child(1) { animation-delay: 0ms; }
-    .animate-stagger > *:nth-child(2) { animation-delay: 40ms; }
-    .animate-stagger > *:nth-child(3) { animation-delay: 80ms; }
-    .animate-stagger > *:nth-child(4) { animation-delay: 120ms; }
-    .animate-stagger > *:nth-child(5) { animation-delay: 160ms; }
-    .animate-stagger > *:nth-child(6) { animation-delay: 200ms; }
+    .animate-stagger > *:nth-child(1) {
+      animation-delay: 0ms;
+    }
+    .animate-stagger > *:nth-child(2) {
+      animation-delay: 40ms;
+    }
+    .animate-stagger > *:nth-child(3) {
+      animation-delay: 80ms;
+    }
+    .animate-stagger > *:nth-child(4) {
+      animation-delay: 120ms;
+    }
+    .animate-stagger > *:nth-child(5) {
+      animation-delay: 160ms;
+    }
+    .animate-stagger > *:nth-child(6) {
+      animation-delay: 200ms;
+    }
   }
 }

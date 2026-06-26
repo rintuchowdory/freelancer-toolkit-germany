@@ -1,220 +1,285 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Freelancer Toolkit Germany</title>
-  <style>
- * { margin: 0; padding: 0; box-sizing: border-box; }
- body {
- font-family: 'Segoe UI', system-ui, sans-serif;
- background: #0d1117;
- color: #e6edf3;
- line-height: 1.6;
- }
- header {
- background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
- border-bottom: 1px solid #21262d;
- padding: 60px 20px;
- text-align: center;
- }
- header h1 {
- font-size: 2.8rem;
- font-weight: 700;
- background: linear-gradient(90deg, #58a6ff, #79c0ff);
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
- margin-bottom: 12px;
- }
- header p {
- font-size: 1.1rem;
- color: #8b949e;
- max-width: 560px;
- margin: 0 auto;
- }
- .badge {
- display: inline-block;
- background: #21262d;
- border: 1px solid #30363d;
- color: #58a6ff;
- font-size: 0.75rem;
- padding: 4px 12px;
- border-radius: 20px;
- margin-top: 16px;
- }
- main { max-width: 960px; margin: 60px auto; padding: 0 20px; }
- .section-title {
- font-size: 1.4rem;
- font-weight: 600;
- color: #e6edf3;
- margin-bottom: 24px;
- padding-bottom: 8px;
- border-bottom: 1px solid #21262d;
- }
- .grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
- gap: 20px;
- margin-bottom: 60px;
- }
- .card {
- background: #161b22;
- border: 1px solid #21262d;
- border-radius: 10px;
- padding: 24px;
- transition: border-color 0.2s, transform 0.2s;
- }
- .card:hover {
- border-color: #58a6ff;
- transform: translateY(-2px);
- }
- .card .icon { font-size: 1.8rem; margin-bottom: 12px; }
- .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: #e6edf3; }
- .card p { font-size: 0.9rem; color: #8b949e; }
- .card a {
- display: inline-block;
- margin-top: 14px;
- font-size: 0.85rem;
- color: #58a6ff;
- text-decoration: none;
- }
- .card a:hover { text-decoration: underline; }
- .tag {
- display: inline-block;
- background: #1f2937;
- border: 1px solid #374151;
- color: #9ca3af;
- font-size: 0.72rem;
- padding: 2px 8px;
- border-radius: 4px;
- margin: 4px 2px 0 0;
- }
- footer {
- text-align: center;
- padding: 40px 20px;
- border-top: 1px solid #21262d;
- color: #484f58;
- font-size: 0.85rem;
- }
- footer a { color: #58a6ff; text-decoration: none; }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freelancer Toolkit Germany</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background: #0d1117;
+        color: #e6edf3;
+        line-height: 1.6;
+      }
+      header {
+        background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
+        border-bottom: 1px solid #21262d;
+        padding: 60px 20px;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #58a6ff, #79c0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 12px;
+      }
+      header p {
+        font-size: 1.1rem;
+        color: #8b949e;
+        max-width: 560px;
+        margin: 0 auto;
+      }
+      .badge {
+        display: inline-block;
+        background: #21262d;
+        border: 1px solid #30363d;
+        color: #58a6ff;
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-top: 16px;
+      }
+      main {
+        max-width: 960px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+      .section-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #e6edf3;
+        margin-bottom: 24px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #21262d;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 60px;
+      }
+      .card {
+        background: #161b22;
+        border: 1px solid #21262d;
+        border-radius: 10px;
+        padding: 24px;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .card:hover {
+        border-color: #58a6ff;
+        transform: translateY(-2px);
+      }
+      .card .icon {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+      }
+      .card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #e6edf3;
+      }
+      .card p {
+        font-size: 0.9rem;
+        color: #8b949e;
+      }
+      .card a {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 0.85rem;
+        color: #58a6ff;
+        text-decoration: none;
+      }
+      .card a:hover {
+        text-decoration: underline;
+      }
+      .tag {
+        display: inline-block;
+        background: #1f2937;
+        border: 1px solid #374151;
+        color: #9ca3af;
+        font-size: 0.72rem;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin: 4px 2px 0 0;
+      }
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        border-top: 1px solid #21262d;
+        color: #484f58;
+        font-size: 0.85rem;
+      }
+      footer a {
+        color: #58a6ff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🛠️ Freelancer Toolkit Germany</h1>
+      <p>
+        Curated tools, templates, and resources for freelancers working in
+        Germany - from Anmeldung to Steuererklärung.
+      </p>
+      <span class="badge">🇩🇪 Made for Germany</span>
+    </header>
 
-<header>
-  <h1>🛠️ Freelancer Toolkit Germany</h1>
-  <p>Curated tools, templates, and resources for freelancers working in Germany - from Anmeldung to Steuererklärung.</p>
-  <span class="badge">🇩🇪 Made for Germany</span>
-</header>
+    <main>
+      <h2 class="section-title">📋 Legal & Registration</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🏛️</div>
+          <h3>Gewerbeanmeldung</h3>
+          <p>
+            How to register your freelance business (Gewerbe or Freiberufler)
+            with the Finanzamt and local authorities.
+          </p>
+          <span class="tag">Tax Office</span>
+          <span class="tag">Registration</span>
+        </div>
+        <div class="card">
+          <div class="icon">📄</div>
+          <h3>Freelancer vs. Freiberufler</h3>
+          <p>
+            Understand the key legal distinction - it affects your tax burden,
+            VAT obligations, and how you invoice.
+          </p>
+          <span class="tag">Legal</span>
+          <span class="tag">Classification</span>
+        </div>
+        <div class="card">
+          <div class="icon">🔐</div>
+          <h3>DSGVO Compliance</h3>
+          <p>
+            Essential GDPR checklist for freelancers - privacy policy, data
+            processing agreements, and client data handling.
+          </p>
+          <span class="tag">GDPR</span>
+          <span class="tag">Privacy</span>
+        </div>
+      </div>
 
-<main>
+      <h2 class="section-title">💶 Finance & Taxes</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🧾</div>
+          <h3>Invoice Templates</h3>
+          <p>
+            Ready-to-use German invoice templates with all legally required
+            fields - Rechnungsnummer, USt-IdNr., and more.
+          </p>
+          <span class="tag">Invoicing</span>
+          <span class="tag">Templates</span>
+        </div>
+        <div class="card">
+          <div class="icon">📊</div>
+          <h3>Steuer-Checkliste</h3>
+          <p>
+            Annual tax checklist: EÜR, VAT returns, income tax advance payments
+            (Vorauszahlungen), and deadlines.
+          </p>
+          <span class="tag">Tax</span>
+          <span class="tag">Deadlines</span>
+        </div>
+        <div class="card">
+          <div class="icon">💰</div>
+          <h3>Hourly Rate Calculator</h3>
+          <p>
+            Calculate your minimum viable rate accounting for sick days,
+            vacation, taxes, and business expenses.
+          </p>
+          <span class="tag">Rates</span>
+          <span class="tag">Calculator</span>
+        </div>
+      </div>
 
-  <h2 class="section-title">📋 Legal & Registration</h2>
-  <div class="grid">
- <div class="card">
- <div class="icon">🏛️</div>
- <h3>Gewerbeanmeldung</h3>
- <p>How to register your freelance business (Gewerbe or Freiberufler) with the Finanzamt and local authorities.</p>
- <span class="tag">Tax Office</span>
- <span class="tag">Registration</span>
- </div>
- <div class="card">
- <div class="icon">📄</div>
- <h3>Freelancer vs. Freiberufler</h3>
- <p>Understand the key legal distinction - it affects your tax burden, VAT obligations, and how you invoice.</p>
- <span class="tag">Legal</span>
- <span class="tag">Classification</span>
- </div>
- <div class="card">
- <div class="icon">🔐</div>
- <h3>DSGVO Compliance</h3>
- <p>Essential GDPR checklist for freelancers - privacy policy, data processing agreements, and client data handling.</p>
- <span class="tag">GDPR</span>
- <span class="tag">Privacy</span>
- </div>
-  </div>
+      <h2 class="section-title">🤝 Clients & Contracts</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">📝</div>
+          <h3>Contract Templates</h3>
+          <p>
+            Bilingual DE/EN service contracts, NDAs, and work-for-hire
+            agreements tailored to German law.
+          </p>
+          <span class="tag">Contracts</span>
+          <span class="tag">Legal</span>
+        </div>
+        <div class="card">
+          <div class="icon">⚠️</div>
+          <h3>Scheinselbständigkeit Guide</h3>
+          <p>
+            Understand the risks of false self-employment and how to structure
+            client relationships to stay compliant.
+          </p>
+          <span class="tag">Compliance</span>
+          <span class="tag">Risk</span>
+        </div>
+        <div class="card">
+          <div class="icon">📬</div>
+          <h3>Client Onboarding Kit</h3>
+          <p>
+            Email templates and a checklist for onboarding new clients - scope,
+            payment terms, and communication norms.
+          </p>
+          <span class="tag">Onboarding</span>
+          <span class="tag">Templates</span>
+        </div>
+      </div>
 
-  <h2 class="section-title">💶 Finance & Taxes</h2>
-  <div class="grid">
- <div class="card">
- <div class="icon">🧾</div>
- <h3>Invoice Templates</h3>
- <p>Ready-to-use German invoice templates with all legally required fields - Rechnungsnummer, USt-IdNr., and more.</p>
- <span class="tag">Invoicing</span>
- <span class="tag">Templates</span>
- </div>
- <div class="card">
- <div class="icon">📊</div>
- <h3>Steuer-Checkliste</h3>
- <p>Annual tax checklist: EÜR, VAT returns, income tax advance payments (Vorauszahlungen), and deadlines.</p>
- <span class="tag">Tax</span>
- <span class="tag">Deadlines</span>
- </div>
- <div class="card">
- <div class="icon">💰</div>
- <h3>Hourly Rate Calculator</h3>
- <p>Calculate your minimum viable rate accounting for sick days, vacation, taxes, and business expenses.</p>
- <span class="tag">Rates</span>
- <span class="tag">Calculator</span>
- </div>
-  </div>
+      <h2 class="section-title">🌐 Insurance & Benefits</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🏥</div>
+          <h3>Health Insurance Options</h3>
+          <p>
+            Compare statutory (GKV) vs. private (PKV) health insurance as a
+            freelancer - pros, cons, and switching rules.
+          </p>
+          <span class="tag">Insurance</span>
+          <span class="tag">Health</span>
+        </div>
+        <div class="card">
+          <div class="icon">🛡️</div>
+          <h3>Berufshaftpflicht</h3>
+          <p>
+            Professional liability insurance - what it covers, which providers
+            freelancers use, and typical costs.
+          </p>
+          <span class="tag">Liability</span>
+          <span class="tag">Insurance</span>
+        </div>
+        <div class="card">
+          <div class="icon">🏖️</div>
+          <h3>Künstlersozialkasse (KSK)</h3>
+          <p>
+            Are you eligible for KSK? Designers, writers, and creatives may
+            qualify for subsidised social security.
+          </p>
+          <span class="tag">KSK</span>
+          <span class="tag">Social Security</span>
+        </div>
+      </div>
+    </main>
 
-  <h2 class="section-title">🤝 Clients & Contracts</h2>
-  <div class="grid">
- <div class="card">
- <div class="icon">📝</div>
- <h3>Contract Templates</h3>
- <p>Bilingual DE/EN service contracts, NDAs, and work-for-hire agreements tailored to German law.</p>
- <span class="tag">Contracts</span>
- <span class="tag">Legal</span>
- </div>
- <div class="card">
- <div class="icon">⚠️</div>
- <h3>Scheinselbständigkeit Guide</h3>
- <p>Understand the risks of false self-employment and how to structure client relationships to stay compliant.</p>
- <span class="tag">Compliance</span>
- <span class="tag">Risk</span>
- </div>
- <div class="card">
- <div class="icon">📬</div>
- <h3>Client Onboarding Kit</h3>
- <p>Email templates and a checklist for onboarding new clients - scope, payment terms, and communication norms.</p>
- <span class="tag">Onboarding</span>
- <span class="tag">Templates</span>
- </div>
-  </div>
-
-  <h2 class="section-title">🌐 Insurance & Benefits</h2>
-  <div class="grid">
- <div class="card">
- <div class="icon">🏥</div>
- <h3>Health Insurance Options</h3>
- <p>Compare statutory (GKV) vs. private (PKV) health insurance as a freelancer - pros, cons, and switching rules.</p>
- <span class="tag">Insurance</span>
- <span class="tag">Health</span>
- </div>
- <div class="card">
- <div class="icon">🛡️</div>
- <h3>Berufshaftpflicht</h3>
- <p>Professional liability insurance - what it covers, which providers freelancers use, and typical costs.</p>
- <span class="tag">Liability</span>
- <span class="tag">Insurance</span>
- </div>
- <div class="card">
- <div class="icon">🏖️</div>
- <h3>Künstlersozialkasse (KSK)</h3>
- <p>Are you eligible for KSK? Designers, writers, and creatives may qualify for subsidised social security.</p>
- <span class="tag">KSK</span>
- <span class="tag">Social Security</span>
- </div>
-  </div>
-
-</main>
-
-<footer>
-  Built for freelancers in 🇩🇪 Germany  · 
-  <a href="https://github.com/rintuchowdory/freelancer-toolkit-germany" target="_blank">GitHub</a>
-</footer>
-
-</body>
+    <footer>
+      Built for freelancers in 🇩🇪 Germany ·
+      <a
+        href="https://github.com/rintuchowdory/freelancer-toolkit-germany"
+        target="_blank"
+        >GitHub</a
+      >
+    </footer>
+  </body>
 </html>

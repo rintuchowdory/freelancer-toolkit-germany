@@ -20,21 +20,22 @@ Das Projekt konkurriert mit kleinen deutschen SaaS-Tools wie Debitoor, Lexoffice
 
 ## Features
 
-| Modul | Beschreibung |
-|-------|-------------|
-| **Invoice Generator** | Professionelle Rechnungen nach §14 UStG, PDF-Export, Rechnungsliste mit Status |
-| **Kleinunternehmer-Prüfer** | §19 UStG Umsatzgrenzen-Checker mit Jahresprognose und Visualisierung |
-| **USt-Erinnerungen** | Voranmeldungsfristen, Jahreserklärung, Benachrichtigungseinstellungen |
-| **ELSTER KI-Assistent** | KI-gestützte Steuerhilfe, FAQ-Datenbank, offizielle Ressourcen |
-| **Ausgabenkategorisierung** | Betriebsausgaben erfassen, EÜR-Export, steuerliche Absetzbarkeit |
-| **CRM Kontakte** | Kundenverwaltung, Umsatz pro Kunde, Kommunikationshistorie |
-| **Dashboard** | KPI-Übersicht, Umsatz-Charts, Fristen-Kalender, Schnellaktionen |
+| Modul                       | Beschreibung                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| **Invoice Generator**       | Professionelle Rechnungen nach §14 UStG, PDF-Export, Rechnungsliste mit Status |
+| **Kleinunternehmer-Prüfer** | §19 UStG Umsatzgrenzen-Checker mit Jahresprognose und Visualisierung           |
+| **USt-Erinnerungen**        | Voranmeldungsfristen, Jahreserklärung, Benachrichtigungseinstellungen          |
+| **ELSTER KI-Assistent**     | KI-gestützte Steuerhilfe, FAQ-Datenbank, offizielle Ressourcen                 |
+| **Ausgabenkategorisierung** | Betriebsausgaben erfassen, EÜR-Export, steuerliche Absetzbarkeit               |
+| **CRM Kontakte**            | Kundenverwaltung, Umsatz pro Kunde, Kommunikationshistorie                     |
+| **Dashboard**               | KPI-Übersicht, Umsatz-Charts, Fristen-Kalender, Schnellaktionen                |
 
 ---
 
 ## Tech Stack
 
 ### Frontend
+
 - **React 19** mit TypeScript 5.6
 - **Tailwind CSS 4** mit shadcn/ui Komponenten
 - **Recharts** für Datenvisualisierungen
@@ -43,12 +44,14 @@ Das Projekt konkurriert mit kleinen deutschen SaaS-Tools wie Debitoor, Lexoffice
 - **IBM Plex Sans** + **JetBrains Mono** (Neue Sachlichkeit Design)
 
 ### Build & Tooling
+
 - **Vite 7** als Build-Tool
 - **pnpm** als Package Manager
 - **TypeScript** mit strikter Konfiguration
 - **Prettier** für Code-Formatierung
 
 ### CI/CD
+
 - **GitHub Actions** — 3 Workflows:
   - `ci.yml` — Lint, TypeScript-Check, Build auf jedem Push
   - `deploy.yml` — Automatisches Deployment auf GitHub Pages bei Push auf `main`
@@ -154,4 +157,4 @@ MIT License — Freie Verwendung für Portfolio-Zwecke.
 
 ---
 
-*Entwickelt mit React 19, TypeScript, Tailwind CSS 4 und GitHub Actions CI/CD.*
+_Entwickelt mit React 19, TypeScript, Tailwind CSS 4 und GitHub Actions CI/CD._

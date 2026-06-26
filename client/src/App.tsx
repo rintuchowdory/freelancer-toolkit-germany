@@ -26,38 +26,38 @@ import Vertraege from "./pages/Vertraege";
 
 function Router() {
   return (
- <DashboardLayout>
- <Switch>
- <Route path="/" component={DashboardHome} />
- <Route path="/invoices" component={InvoiceGenerator} />
- <Route path="/kleinunternehmer" component={KleinunternehmerChecker} />
- <Route path="/vat-reminders" component={VatReminders} />
- <Route path="/elster" component={ElsterHelper} />
- <Route path="/expenses" component={ExpenseCategorization} />
- <Route path="/contacts" component={CrmContacts} />
- <Route path="/settings" component={Settings} />
- <Route path="/zeiterfassung" component={Zeiterfassung} />
- <Route path="/angebote" component={Angebote} />
- <Route path="/projekte" component={Projektuebersicht} />
- <Route path="/steuerrechner" component={TaxCalculator} />
- <Route path="/vertraege" component={Vertraege} />
- <Route path="/404" component={NotFound} />
- <Route component={NotFound} />
- </Switch>
- </DashboardLayout>
+    <DashboardLayout>
+      <Switch>
+        <Route path="/" component={DashboardHome} />
+        <Route path="/invoices" component={InvoiceGenerator} />
+        <Route path="/kleinunternehmer" component={KleinunternehmerChecker} />
+        <Route path="/vat-reminders" component={VatReminders} />
+        <Route path="/elster" component={ElsterHelper} />
+        <Route path="/expenses" component={ExpenseCategorization} />
+        <Route path="/contacts" component={CrmContacts} />
+        <Route path="/settings" component={Settings} />
+        <Route path="/zeiterfassung" component={Zeiterfassung} />
+        <Route path="/angebote" component={Angebote} />
+        <Route path="/projekte" component={Projektuebersicht} />
+        <Route path="/steuerrechner" component={TaxCalculator} />
+        <Route path="/vertraege" component={Vertraege} />
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </DashboardLayout>
   );
 }
 
 function App() {
   return (
- <ErrorBoundary>
- <ThemeProvider defaultTheme="light" switchable>
- <TooltipProvider>
- <Toaster richColors position="top-right" />
- <Router />
- </TooltipProvider>
- </ThemeProvider>
- </ErrorBoundary>
+    <ErrorBoundary>
+      <ThemeProvider defaultTheme="light" switchable>
+        <TooltipProvider>
+          <Toaster richColors position="top-right" />
+          <Router />
+        </TooltipProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 

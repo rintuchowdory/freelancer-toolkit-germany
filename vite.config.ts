@@ -9,12 +9,7 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 export default defineConfig(({ mode }) => ({
   // Use repo name as base for GitHub Pages deployment
   base: mode === "production" ? "/" : "/",
-  plugins: [
-    react(),
-    tailwindcss(),
-    jsxLocPlugin(),
-    vitePluginManusRuntime(),
-  ],
+  plugins: [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client/src"),
@@ -30,7 +25,11 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           vendor: ["react", "react-dom"],
           charts: ["recharts"],
-          ui: ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tabs"],
+          ui: [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-tabs",
+          ],
         },
       },
     },

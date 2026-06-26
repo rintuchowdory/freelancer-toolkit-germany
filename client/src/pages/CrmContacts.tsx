@@ -9,12 +9,32 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "sonner";
 import {
-  Plus, Search, Building2, Mail, Phone, MapPin,
-  Euro, FileText, MoreHorizontal, Star, StarOff,
-  TrendingUp, Users, Filter, ChevronRight, Edit, Trash2
+  Plus,
+  Search,
+  Building2,
+  Mail,
+  Phone,
+  MapPin,
+  Euro,
+  FileText,
+  MoreHorizontal,
+  Star,
+  StarOff,
+  TrendingUp,
+  Users,
+  Filter,
+  ChevronRight,
+  Edit,
+  Trash2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { nanoid } from "nanoid";
@@ -44,7 +64,7 @@ const sampleContacts: Contact[] = [
     phone: "+49 30 12345678",
     city: "Berlin",
     status: "active",
-    totalRevenue: 12480.00,
+    totalRevenue: 12480.0,
     invoiceCount: 8,
     lastContact: "2024-11-28",
     starred: true,
@@ -59,7 +79,7 @@ const sampleContacts: Contact[] = [
     phone: "+49 89 98765432",
     city: "München",
     status: "active",
-    totalRevenue: 7650.00,
+    totalRevenue: 7650.0,
     invoiceCount: 5,
     lastContact: "2024-11-20",
     starred: true,
@@ -74,7 +94,7 @@ const sampleContacts: Contact[] = [
     phone: "+49 40 55443322",
     city: "Hamburg",
     status: "active",
-    totalRevenue: 9240.00,
+    totalRevenue: 9240.0,
     invoiceCount: 6,
     lastContact: "2024-11-15",
     starred: false,
@@ -88,7 +108,7 @@ const sampleContacts: Contact[] = [
     phone: "+49 221 77665544",
     city: "Köln",
     status: "active",
-    totalRevenue: 3810.00,
+    totalRevenue: 3810.0,
     invoiceCount: 3,
     lastContact: "2024-11-25",
     starred: false,
@@ -116,7 +136,7 @@ const sampleContacts: Contact[] = [
     phone: "+49 30 99887766",
     city: "Berlin",
     status: "inactive",
-    totalRevenue: 2380.00,
+    totalRevenue: 2380.0,
     invoiceCount: 2,
     lastContact: "2024-08-15",
     starred: false,
@@ -125,8 +145,15 @@ const sampleContacts: Contact[] = [
 ];
 
 const statusConfig = {
-  active: { label: "Aktiv", className: "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300" },
-  prospect: { label: "Interessent", className: "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300" },
+  active: {
+    label: "Aktiv",
+    className:
+      "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300",
+  },
+  prospect: {
+    label: "Interessent",
+    className: "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300",
+  },
   inactive: { label: "Inaktiv", className: "bg-muted text-muted-foreground" },
 };
 
@@ -146,10 +173,14 @@ export default function CrmContacts() {
   });
 
   const formatEuro = (amount: number) =>
-    new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(amount);
+    new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+    }).format(amount);
 
   const filteredContacts = contacts.filter(c => {
-    const matchesSearch = !search ||
+    const matchesSearch =
+      !search ||
       c.name.toLowerCase().includes(search.toLowerCase()) ||
       c.company.toLowerCase().includes(search.toLowerCase()) ||
       c.email.toLowerCase().includes(search.toLowerCase()) ||
@@ -162,7 +193,9 @@ export default function CrmContacts() {
   const activeCount = contacts.filter(c => c.status === "active").length;
 
   const toggleStar = (id: string) => {
-    setContacts(contacts.map(c => c.id === id ? { ...c, starred: !c.starred } : c));
+    setContacts(
+      contacts.map(c => (c.id === id ? { ...c, starred: !c.starred } : c))
+    );
   };
 
   const addContact = () => {
@@ -177,7 +210,7 @@ export default function CrmContacts() {
       email: newContact.email || "",
       phone: newContact.phone || "",
       city: newContact.city || "",
-      status: newContact.status as Contact["status"] || "active",
+      status: (newContact.status as Contact["status"]) || "active",
       totalRevenue: 0,
       invoiceCount: 0,
       lastContact: new Date().toISOString().split("T")[0],
@@ -186,7 +219,14 @@ export default function CrmContacts() {
     };
     setContacts([contact, ...contacts]);
     setShowAddForm(false);
-    setNewContact({ status: "active", starred: false, tags: [], totalRevenue: 0, invoiceCount: 0, lastContact: new Date().toISOString().split("T")[0] });
+    setNewContact({
+      status: "active",
+      starred: false,
+      tags: [],
+      totalRevenue: 0,
+      invoiceCount: 0,
+      lastContact: new Date().toISOString().split("T")[0],
+    });
     toast.success("Kontakt hinzugefügt");
   };
 
@@ -213,15 +253,40 @@ export default function CrmContacts() {
       {/* KPI Strip */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6 animate-stagger">
         {[
-          { label: "Kontakte gesamt", value: String(contacts.length), sub: `${activeCount} aktiv`, icon: Users },
-          { label: "Gesamtumsatz", value: formatEuro(totalRevenue), sub: "alle Kunden", icon: Euro },
-          { label: "Ø Umsatz/Kunde", value: formatEuro(totalRevenue / activeCount), sub: "aktive Kunden", icon: TrendingUp },
-          { label: "Interessenten", value: String(contacts.filter(c => c.status === "prospect").length), sub: "in Pipeline", icon: ChevronRight },
-        ].map((kpi) => (
-          <div key={kpi.label} className="bg-card border border-border rounded p-4">
+          {
+            label: "Kontakte gesamt",
+            value: String(contacts.length),
+            sub: `${activeCount} aktiv`,
+            icon: Users,
+          },
+          {
+            label: "Gesamtumsatz",
+            value: formatEuro(totalRevenue),
+            sub: "alle Kunden",
+            icon: Euro,
+          },
+          {
+            label: "Ø Umsatz/Kunde",
+            value: formatEuro(totalRevenue / activeCount),
+            sub: "aktive Kunden",
+            icon: TrendingUp,
+          },
+          {
+            label: "Interessenten",
+            value: String(contacts.filter(c => c.status === "prospect").length),
+            sub: "in Pipeline",
+            icon: ChevronRight,
+          },
+        ].map(kpi => (
+          <div
+            key={kpi.label}
+            className="bg-card border border-border rounded p-4"
+          >
             <div className="flex items-center gap-2 mb-2">
               <kpi.icon className="w-4 h-4 text-amber-gold" />
-              <span className="text-xs text-muted-foreground font-medium uppercase tracking-wide">{kpi.label}</span>
+              <span className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
+                {kpi.label}
+              </span>
             </div>
             <div className="text-xl font-bold financial-value">{kpi.value}</div>
             <div className="text-xs text-muted-foreground mt-1">{kpi.sub}</div>
@@ -238,7 +303,9 @@ export default function CrmContacts() {
               <Label className="text-xs">Name *</Label>
               <Input
                 value={newContact.name || ""}
-                onChange={(e) => setNewContact({ ...newContact, name: e.target.value })}
+                onChange={e =>
+                  setNewContact({ ...newContact, name: e.target.value })
+                }
                 className="mt-1 h-8 text-sm"
                 placeholder="Vor- und Nachname"
               />
@@ -247,7 +314,9 @@ export default function CrmContacts() {
               <Label className="text-xs">Firma *</Label>
               <Input
                 value={newContact.company || ""}
-                onChange={(e) => setNewContact({ ...newContact, company: e.target.value })}
+                onChange={e =>
+                  setNewContact({ ...newContact, company: e.target.value })
+                }
                 className="mt-1 h-8 text-sm"
                 placeholder="Firmenname"
               />
@@ -257,7 +326,9 @@ export default function CrmContacts() {
               <Input
                 type="email"
                 value={newContact.email || ""}
-                onChange={(e) => setNewContact({ ...newContact, email: e.target.value })}
+                onChange={e =>
+                  setNewContact({ ...newContact, email: e.target.value })
+                }
                 className="mt-1 h-8 text-sm"
                 placeholder="email@firma.de"
               />
@@ -266,7 +337,9 @@ export default function CrmContacts() {
               <Label className="text-xs">Telefon</Label>
               <Input
                 value={newContact.phone || ""}
-                onChange={(e) => setNewContact({ ...newContact, phone: e.target.value })}
+                onChange={e =>
+                  setNewContact({ ...newContact, phone: e.target.value })
+                }
                 className="mt-1 h-8 text-sm"
                 placeholder="+49 ..."
               />
@@ -275,7 +348,9 @@ export default function CrmContacts() {
               <Label className="text-xs">Stadt</Label>
               <Input
                 value={newContact.city || ""}
-                onChange={(e) => setNewContact({ ...newContact, city: e.target.value })}
+                onChange={e =>
+                  setNewContact({ ...newContact, city: e.target.value })
+                }
                 className="mt-1 h-8 text-sm"
                 placeholder="Berlin"
               />
@@ -284,7 +359,12 @@ export default function CrmContacts() {
               <Label className="text-xs">Status</Label>
               <Select
                 value={newContact.status}
-                onValueChange={(v) => setNewContact({ ...newContact, status: v as Contact["status"] })}
+                onValueChange={v =>
+                  setNewContact({
+                    ...newContact,
+                    status: v as Contact["status"],
+                  })
+                }
               >
                 <SelectTrigger className="mt-1 h-8 text-sm">
                   <SelectValue />
@@ -298,10 +378,17 @@ export default function CrmContacts() {
             </div>
           </div>
           <div className="flex gap-2 mt-4">
-            <Button onClick={addContact} className="bg-amber-gold hover:bg-amber-gold/90 text-white h-8 text-xs">
+            <Button
+              onClick={addContact}
+              className="bg-amber-gold hover:bg-amber-gold/90 text-white h-8 text-xs"
+            >
               Kontakt speichern
             </Button>
-            <Button variant="outline" onClick={() => setShowAddForm(false)} className="h-8 text-xs">
+            <Button
+              variant="outline"
+              onClick={() => setShowAddForm(false)}
+              className="h-8 text-xs"
+            >
               Abbrechen
             </Button>
           </div>
@@ -310,14 +397,19 @@ export default function CrmContacts() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Contact List */}
-        <div className={cn("space-y-4", selectedContact ? "lg:col-span-2" : "lg:col-span-3")}>
+        <div
+          className={cn(
+            "space-y-4",
+            selectedContact ? "lg:col-span-2" : "lg:col-span-3"
+          )}
+        >
           {/* Search & Filter */}
           <div className="flex items-center gap-3">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={e => setSearch(e.target.value)}
                 placeholder="Kontakte durchsuchen..."
                 className="pl-9 h-8 text-sm"
               />
@@ -341,44 +433,69 @@ export default function CrmContacts() {
               <thead>
                 <tr className="border-b border-border bg-muted/20">
                   <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide w-8"></th>
-                  <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">Kontakt</th>
-                  <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide hidden lg:table-cell">Stadt</th>
-                  <th className="text-right px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">Umsatz</th>
-                  <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">Status</th>
-                  <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide hidden lg:table-cell">Letzter Kontakt</th>
+                  <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                    Kontakt
+                  </th>
+                  <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide hidden lg:table-cell">
+                    Stadt
+                  </th>
+                  <th className="text-right px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                    Umsatz
+                  </th>
+                  <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                    Status
+                  </th>
+                  <th className="text-left px-4 py-2.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide hidden lg:table-cell">
+                    Letzter Kontakt
+                  </th>
                   <th className="w-16"></th>
                 </tr>
               </thead>
               <tbody>
-                {filteredContacts.map((contact) => (
+                {filteredContacts.map(contact => (
                   <tr
                     key={contact.id}
                     className={cn(
                       "border-b border-border/50 hover:bg-muted/10 transition-colors cursor-pointer",
-                      selectedContact?.id === contact.id && "bg-amber-gold/5 border-l-2 border-l-amber-gold"
+                      selectedContact?.id === contact.id &&
+                        "bg-amber-gold/5 border-l-2 border-l-amber-gold"
                     )}
-                    onClick={() => setSelectedContact(selectedContact?.id === contact.id ? null : contact)}
+                    onClick={() =>
+                      setSelectedContact(
+                        selectedContact?.id === contact.id ? null : contact
+                      )
+                    }
                   >
                     <td className="px-3 py-3">
                       <button
-                        onClick={(e) => { e.stopPropagation(); toggleStar(contact.id); }}
+                        onClick={e => {
+                          e.stopPropagation();
+                          toggleStar(contact.id);
+                        }}
                         className="text-muted-foreground hover:text-amber-gold transition-colors"
                       >
-                        {contact.starred
-                          ? <Star className="w-3.5 h-3.5 fill-amber-gold text-amber-gold" />
-                          : <StarOff className="w-3.5 h-3.5" />
-                        }
+                        {contact.starred ? (
+                          <Star className="w-3.5 h-3.5 fill-amber-gold text-amber-gold" />
+                        ) : (
+                          <StarOff className="w-3.5 h-3.5" />
+                        )}
                       </button>
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded bg-amber-gold/10 border border-amber-gold/20 flex items-center justify-center shrink-0">
                           <span className="text-xs font-bold text-amber-gold">
-                            {contact.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                            {contact.name
+                              .split(" ")
+                              .map(n => n[0])
+                              .join("")
+                              .slice(0, 2)}
                           </span>
                         </div>
                         <div>
-                          <div className="text-sm font-semibold">{contact.name}</div>
+                          <div className="text-sm font-semibold">
+                            {contact.name}
+                          </div>
                           <div className="text-xs text-muted-foreground flex items-center gap-1">
                             <Building2 className="w-3 h-3" />
                             {contact.company}
@@ -393,17 +510,28 @@ export default function CrmContacts() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-right">
-                      <div className="financial-value font-semibold text-sm">{formatEuro(contact.totalRevenue)}</div>
-                      <div className="text-[10px] text-muted-foreground">{contact.invoiceCount} Rechnungen</div>
+                      <div className="financial-value font-semibold text-sm">
+                        {formatEuro(contact.totalRevenue)}
+                      </div>
+                      <div className="text-[10px] text-muted-foreground">
+                        {contact.invoiceCount} Rechnungen
+                      </div>
                     </td>
                     <td className="px-4 py-3">
-                      <span className={cn("text-[10px] px-2 py-0.5 rounded font-medium", statusConfig[contact.status].className)}>
+                      <span
+                        className={cn(
+                          "text-[10px] px-2 py-0.5 rounded font-medium",
+                          statusConfig[contact.status].className
+                        )}
+                      >
                         {statusConfig[contact.status].label}
                       </span>
                     </td>
                     <td className="px-4 py-3 hidden lg:table-cell">
                       <span className="text-xs text-muted-foreground">
-                        {new Date(contact.lastContact).toLocaleDateString("de-DE")}
+                        {new Date(contact.lastContact).toLocaleDateString(
+                          "de-DE"
+                        )}
                       </span>
                     </td>
                     <td className="px-2 py-3">
@@ -412,7 +540,12 @@ export default function CrmContacts() {
                           size="icon"
                           variant="ghost"
                           className="w-6 h-6"
-                          onClick={(e) => { e.stopPropagation(); toast.success(`Rechnung für ${contact.company} erstellt`); }}
+                          onClick={e => {
+                            e.stopPropagation();
+                            toast.success(
+                              `Rechnung für ${contact.company} erstellt`
+                            );
+                          }}
                         >
                           <FileText className="w-3 h-3" />
                         </Button>
@@ -420,10 +553,13 @@ export default function CrmContacts() {
                           size="icon"
                           variant="ghost"
                           className="w-6 h-6 text-muted-foreground hover:text-destructive"
-                          onClick={(e) => {
+                          onClick={e => {
                             e.stopPropagation();
-                            setContacts(contacts.filter(c => c.id !== contact.id));
-                            if (selectedContact?.id === contact.id) setSelectedContact(null);
+                            setContacts(
+                              contacts.filter(c => c.id !== contact.id)
+                            );
+                            if (selectedContact?.id === contact.id)
+                              setSelectedContact(null);
                             toast.success("Kontakt gelöscht");
                           }}
                         >
@@ -451,22 +587,38 @@ export default function CrmContacts() {
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded bg-amber-gold/10 border border-amber-gold/20 flex items-center justify-center">
                     <span className="text-base font-bold text-amber-gold">
-                      {selectedContact.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                      {selectedContact.name
+                        .split(" ")
+                        .map(n => n[0])
+                        .join("")
+                        .slice(0, 2)}
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold">{selectedContact.name}</h3>
-                    <p className="text-xs text-muted-foreground">{selectedContact.company}</p>
+                    <h3 className="text-sm font-bold">
+                      {selectedContact.name}
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      {selectedContact.company}
+                    </p>
                   </div>
                 </div>
-                <button onClick={() => setSelectedContact(null)} className="text-muted-foreground hover:text-foreground text-xs">✕</button>
+                <button
+                  onClick={() => setSelectedContact(null)}
+                  className="text-muted-foreground hover:text-foreground text-xs"
+                >
+                  ✕
+                </button>
               </div>
 
               <div className="space-y-2.5">
                 {selectedContact.email && (
                   <div className="flex items-center gap-2 text-xs">
                     <Mail className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-                    <a href={`mailto:${selectedContact.email}`} className="text-amber-gold hover:underline truncate">
+                    <a
+                      href={`mailto:${selectedContact.email}`}
+                      className="text-amber-gold hover:underline truncate"
+                    >
                       {selectedContact.email}
                     </a>
                   </div>
@@ -486,26 +638,39 @@ export default function CrmContacts() {
                 {selectedContact.ustIdNr && (
                   <div className="flex items-center gap-2 text-xs">
                     <Building2 className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-                    <span className="financial-value">{selectedContact.ustIdNr}</span>
+                    <span className="financial-value">
+                      {selectedContact.ustIdNr}
+                    </span>
                   </div>
                 )}
               </div>
 
               <div className="mt-4 pt-4 border-t border-border grid grid-cols-2 gap-3">
                 <div className="bg-muted/30 rounded p-3 text-center">
-                  <div className="text-base font-bold financial-value text-amber-gold">{formatEuro(selectedContact.totalRevenue)}</div>
-                  <div className="text-[10px] text-muted-foreground">Gesamtumsatz</div>
+                  <div className="text-base font-bold financial-value text-amber-gold">
+                    {formatEuro(selectedContact.totalRevenue)}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Gesamtumsatz
+                  </div>
                 </div>
                 <div className="bg-muted/30 rounded p-3 text-center">
-                  <div className="text-base font-bold financial-value">{selectedContact.invoiceCount}</div>
-                  <div className="text-[10px] text-muted-foreground">Rechnungen</div>
+                  <div className="text-base font-bold financial-value">
+                    {selectedContact.invoiceCount}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Rechnungen
+                  </div>
                 </div>
               </div>
 
               {selectedContact.tags.length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {selectedContact.tags.map(tag => (
-                    <span key={tag} className="text-[10px] px-2 py-0.5 rounded bg-amber-gold/10 text-amber-gold border border-amber-gold/20">
+                    <span
+                      key={tag}
+                      className="text-[10px] px-2 py-0.5 rounded bg-amber-gold/10 text-amber-gold border border-amber-gold/20"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -515,12 +680,20 @@ export default function CrmContacts() {
               <div className="mt-4 space-y-2">
                 <Button
                   className="w-full bg-amber-gold hover:bg-amber-gold/90 text-white h-8 text-xs"
-                  onClick={() => toast.success(`Neue Rechnung für ${selectedContact.company}`)}
+                  onClick={() =>
+                    toast.success(
+                      `Neue Rechnung für ${selectedContact.company}`
+                    )
+                  }
                 >
                   <FileText className="w-3.5 h-3.5 mr-1.5" />
                   Rechnung erstellen
                 </Button>
-                <Button variant="outline" className="w-full h-8 text-xs" onClick={() => toast.success("E-Mail geöffnet")}>
+                <Button
+                  variant="outline"
+                  className="w-full h-8 text-xs"
+                  onClick={() => toast.success("E-Mail geöffnet")}
+                >
                   <Mail className="w-3.5 h-3.5 mr-1.5" />
                   E-Mail senden
                 </Button>

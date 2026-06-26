@@ -10,7 +10,9 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="text-center max-w-md px-6">
-        <div className="text-8xl font-bold financial-value text-amber-gold/20 mb-4">404</div>
+        <div className="text-8xl font-bold financial-value text-amber-gold/20 mb-4">
+          404
+        </div>
         <h1 className="text-2xl font-bold mb-2">Seite nicht gefunden</h1>
         <p className="text-sm text-muted-foreground mb-8">
           Die angeforderte Seite existiert nicht oder wurde verschoben.
