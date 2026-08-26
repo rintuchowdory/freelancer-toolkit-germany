@@ -6,7 +6,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import DashboardLayout from "./components/DashboardLayout";
@@ -25,9 +25,11 @@ import TaxCalculator from "./components/TaxCalculator";
 import Vertraege from "./pages/Vertraege";
 
 function Router() {
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
   return (
-    <DashboardLayout>
-      <Switch>
+    <WouterRouter base={basePath}>
+      <DashboardLayout>
+        <Switch>
         <Route path="/" component={DashboardHome} />
         <Route path="/invoices" component={InvoiceGenerator} />
         <Route path="/kleinunternehmer" component={KleinunternehmerChecker} />
@@ -43,8 +45,9 @@ function Router() {
         <Route path="/vertraege" component={Vertraege} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
-      </Switch>
-    </DashboardLayout>
+        </Switch>
+      </DashboardLayout>
+    </WouterRouter>
   );
 }
 
